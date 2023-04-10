@@ -5,6 +5,7 @@ body{
     grid-template-areas: "header" "main_content" "footer";
     background-color: rgb(131, 218, 198);
     /* height: 100vh; */
+    font-family: Courier
 }
 
 header{
@@ -26,6 +27,7 @@ header{
 }
 
 #the_map{
-	height:80vh;
+	height:30vh;
+    width:50vh; 
     grid-area: main_map;
 }
