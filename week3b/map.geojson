@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"place":"UCLA"},"geometry":{"coordinates":[-118.44542810582017,34.07104940496552],"type":"Point"}},{"type":"Feature","properties":{"place":"New York"},"geometry":{"coordinates":[-73.98780175169176,40.74542140374109],"type":"Point"}}]}
