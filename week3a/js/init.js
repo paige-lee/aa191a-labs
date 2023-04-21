@@ -1,14 +1,13 @@
 // declare the map and use the variables above
-const map = L.map('the_map').setView([34.0709,-118.444], 5);
+const map = L.map('the_map').setView([39.099728, -94.578568], 4);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-addMarker(37,-122,'home','home land!')
-addMarker(32,-118,'work','where i work land!')
-addMarker(39,-119,'location 1','random location')
-addMarker(36,-120,'location 2','another random location')
+addMarker(40.730610, -73.935242, "New York, NY", "I grew up in the NY area")
+addMarker(34.052235, -118.243683, "Los Angeles, CA", "I came to UCLA for college")
+addMarker(42.361145, -71.057083, "Boston, MA", "I will be moving to Boston after college")
 
 // create a function to add markers
 function addMarker(lat,lng,title,message){
