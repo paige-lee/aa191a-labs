@@ -15,17 +15,23 @@ function addMarker(lat,lng,title,message){
     return message
 }
 
-const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpOaH94y-oguAqbtcvZRyKdrEYiT1JOzW0jmmreznYS8THdQTYQ6cUB7J_68SZLgjpXbB_FY_nDf2A/pub?output=csv"
+const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRU65v9IBan73Y-1-EwfGbeCojzGRApdQQ6C8PS9pBDVf6hlT5_yemdsWPiLvOtLCnwfRCl1TZu2nrS/pub?output=csv"
 
 function loadData(url){
-    fetch(url)
-        .then(response => {
-            console.log(response)
-            return response
-        })
-        .then(data =>{
-            // do something with the data
-        })
+    Papa.parse(url, {
+        header: true,
+        download: true,
+        complete: results => processData(results)
+    })
 }
-// we will put this comment to remember to call our function later!
+
+function processData(results){
+    console.log(results)
+    results.data.forEach(data => {
+        console.log(data)
+        addMarker(data.lat,data.lng,data['Where did you get vaccinated?'],data['Timestamp'])
+    })
+}
+
 loadData(dataUrl)
+
