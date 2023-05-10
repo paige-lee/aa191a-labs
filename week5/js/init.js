@@ -11,11 +11,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // create a function to add markers
 function addMarker(lat,lng,title,message){
     console.log(message)
-    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <h3>${message}</h3>`)
+    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <h3>Have you ever received a positive COVID-19 diagnosis?: ${message}</h3> <h3>Which of the following options describes your COVID-19 vaccination status?: ${message}</h3>`)
     return message
 }
 
-const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRU65v9IBan73Y-1-EwfGbeCojzGRApdQQ6C8PS9pBDVf6hlT5_yemdsWPiLvOtLCnwfRCl1TZu2nrS/pub?output=csv"
+const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUqE0lgJjHaj4wL7Nty9SnrqA6nEDfKnaG7dEDKEGCCysuDRVjZLBcEWLAs2W6OeDhQ7PoJElstJ3U/pub?output=csv"
 
 function loadData(url){
     Papa.parse(url, {
@@ -29,7 +29,7 @@ function processData(results){
     console.log(results)
     results.data.forEach(data => {
         console.log(data)
-        addMarker(data.lat,data.lng,data['Where did you get vaccinated?'],data['Timestamp'])
+        addMarker(data.lat,data.lng, data["3. Where do you currently live?"], data["1. Have you ever received a positive COVID-19 diagnosis?"], data["2. Which of the following options describes your COVID-19 vaccination status?"])
     })
 }
 
