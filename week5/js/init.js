@@ -9,10 +9,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // create a function to add markers
-function addMarker(lat,lng,title,message){
-    console.log(message)
-    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <h3>Have you ever received a positive COVID-19 diagnosis?: ${message}</h3> <h3>Which of the following options describes your COVID-19 vaccination status?: ${message}</h3>`)
-    return message
+function addMarker(lat,lng,title,message1, message2){
+    console.log(message1, message2)
+    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <h3>Have you ever had COVID-19? </h3> </p>${message1}</p>  <h3>What is your COVID-19 vaccination status? </h3> </p>${message2}</p>`)
+    return message1, message2
 }
 
 const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUqE0lgJjHaj4wL7Nty9SnrqA6nEDfKnaG7dEDKEGCCysuDRVjZLBcEWLAs2W6OeDhQ7PoJElstJ3U/pub?output=csv"
